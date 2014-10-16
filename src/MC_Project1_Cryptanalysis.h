@@ -18,7 +18,7 @@
 using namespace std;
 
 int main();
-
+int runTest(string cipherText, int shiftKey);
 
 
 #endif /* MC_PROJECT1_CRYPTANALYSIS_H_ */

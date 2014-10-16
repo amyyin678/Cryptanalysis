@@ -10,12 +10,12 @@
 
 #define KEY_RANGE_START 0
 #define KEY_RANGE_END 25
+#define numKeys 1
 
-int main() {
-	int numKeys = 1;
-	int key[numKeys];
-	//string cipherText = "btohcbgqnmhb";	//cupid chronic
-	string cipherText = "kntckxsgdbzs";	//loudlythecat
+int key[KEY_RANGE_END+1];
+
+	string cipherText = "btohcbgqnmhb";	//cupid chronic
+	//string cipherText = "kntckxsgdbzs";	//loudlythecat
 	string testText;
 	string plainText;
 
@@ -28,6 +28,9 @@ int main() {
 	Dictionary dic;
 	ShiftCipher shiftCipher;
 	MonoAlphaSubstituteCipher monoCipher(&dic);
+
+
+int main() {
 
 	dic.initHashMap();
 
@@ -49,33 +52,12 @@ int main() {
 		//while(plainTextLength < lenCipherText) {
 			if(keyFound == -1) {
 				for(int i=KEY_RANGE_START; i<=KEY_RANGE_END;i++) {
-					foundLen = 0;
-					testText = shiftCipher.getShiftCipherText(cipherText,i);
-					//cout << "Key: " << i << endl;
-					foundLen = dic.isTestTextInDictionary(testText);
-					//cout << "Found Length: " << foundLen << endl;
-					if(foundLen != 0)
-					{
-						plainText = testText;
-						plainTextLength += foundLen;
-						keyFound = i;
-						cout << "Found the key: " << i << " for " << testText << " for Length: " << foundLen << endl;
-					}
+					foundLen = runTest(cipherText, i);
 				}
 			}
-			/*
 			else {
-				testText = shiftCipher.getShiftCipherText(&cipherText[plainTextLength],keyFound);
-				foundLen = dic.isTestTextInDictionary(testText);
-				if(foundLen != 0)
-				{
-					plainTextLength += foundLen;
-					plainText = plainText + testText;
-					cout << "Found the key: " << keyFound << " for " << testText << " for Length: " << foundLen << endl << endl << endl;
-					break;
-				}
+				foundLen = runTest(&cipherText[plainTextLength],keyFound);
 			}
-			*/
 		//}	//while()
 
 		if(keyFound) {
@@ -93,4 +75,19 @@ int main() {
 	//monoCipher.getMonoAlphaSubstituteCipher(cipherText, key, numKeys);
 
 	return 0;
+}
+
+int runTest(string cipherText, int shiftKey) {
+	foundLen = 0;
+	testText = shiftCipher.getShiftCipherText(cipherText,shiftKey);
+	//cout << "Key: " << i << endl;
+	foundLen = dic.isTestTextInDictionary(testText);
+	//cout << "Found Length: " << foundLen << endl;
+	if(foundLen != 0)
+	{
+		plainText = testText;
+		plainTextLength += foundLen;
+		keyFound = shiftKey;
+		cout << "Found the key: " << shiftKey << " for " << testText << " for Length: " << foundLen << endl;
+	}
 }

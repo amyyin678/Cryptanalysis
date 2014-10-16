@@ -26,7 +26,7 @@ void MonoAlphaSubstituteCipher::getMonoAlphaShiftCipher(int key[], int numKeysFo
 
 	for (int i=0; i<numKeysForPermutation; i++) {
 		cipherTextTest[i] = cipherTextTest[i] - 'a';	// to make it a number from 0-25
-		cipherTextTest[i] = ( cipherTextTest[i] + key[i] + 26 ) % 26;	// add 26 in case the shift is negative
+		cipherTextTest[i] = ( cipherTextTest[i] + key[cipherTextTest[i]] + 26 ) % 26;	// add 26 in case the shift is negative
 		cipherTextTest[i] = cipherTextTest[i] + 'a';	// back to ascii code
 	}
 
