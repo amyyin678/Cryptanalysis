@@ -11,9 +11,11 @@
 #include <iostream>
 #include <unordered_map>
 #include <string>
+
 #include "Dictionary.h"
 #include "ShiftCipher.h"
 #include "MonoAlphaSubstituteCipher.h"
+#include "PolyAlphaSubstituteCipher.h"
 
 using namespace std;
 

@@ -14,20 +14,21 @@
 
 int key[KEY_RANGE_END+1];
 
-	string cipherText = "btohcbgqnmhb";	//cupid chronic
-	//string cipherText = "kntckxsgdbzs";	//loudlythecat
-	string testText;
-	string plainText;
+string cipherText; //"btohcbgqnmhb";	//cupid chronic
+//string cipherText = "kntckxsgdbzs";	//loudlythecat
+string testText;
+string plainText;
 
-	int lenCipherText = cipherText.length();
-	int maxLenWords = 0;
-	int minLenWords = 255;
-	int foundLen = 0, plainTextLength = 0;
-	int keyFound = -1;
+int lenCipherText;
+int maxLenWords = 0;
+int minLenWords = 255;
+int foundLen = 0, plainTextLength = 0;
+int keyFound = -1;
 
-	Dictionary dic;
-	ShiftCipher shiftCipher;
-	MonoAlphaSubstituteCipher monoCipher(&dic);
+Dictionary dic;
+ShiftCipher shiftCipher;
+MonoAlphaSubstituteCipher monoCipher(&dic);
+PolyAlphaSubstituteCipher polyCipher(&dic);
 
 
 int main() {
@@ -37,8 +38,18 @@ int main() {
 	maxLenWords = dic.getMaxLenWords();
 	minLenWords = dic.getMinLenWords();
 
-	cout << "Max length of words: " << maxLenWords << endl;
-	cout << "Min length of words: " << minLenWords << endl;
+	cout << endl << "Please enter number of keys: ";
+	cin >> numKeys;
+
+	cout << endl << "Please enter cipher text: ";
+	cin >> cipherText;
+
+	lenCipherText = cipherText.length();
+
+
+
+	//cout << "Max length of words: " << maxLenWords << endl;
+	//cout << "Min length of words: " << minLenWords << endl;
 
 	/*
 	cout << "one is in Dictionary?: " << dic.isInDictionary("one") << endl;
@@ -49,30 +60,33 @@ int main() {
 
 
 	if(numKeys == 1) {
-		//while(plainTextLength < lenCipherText) {
-			if(keyFound == -1) {
-				for(int i=KEY_RANGE_START; i<=KEY_RANGE_END;i++) {
-					foundLen = runTest(cipherText, i);
-				}
+		if(keyFound == -1) {
+			for(int i=KEY_RANGE_START; i<=KEY_RANGE_END;i++) {
+				foundLen = runTest(cipherText, i);
 			}
-			else {
-				foundLen = runTest(&cipherText[plainTextLength],keyFound);
-			}
-		//}	//while()
-
-		if(keyFound) {
-			cout << ">>>>>>>>>>Plain Text: " << plainText << "<<<<<<<<<<" << endl;
 		}
-
+		else {
+			foundLen = runTest(&cipherText[plainTextLength],keyFound);
+		}
+		if(keyFound) {
+			cout << endl << "Plain Text: " << plainText << endl;
+		}
 		return 0;
 	}
+
 
 	/* Continue if the numKeys is > 1 */
 	for(int i=0; i<numKeys; i++) {
 		key[i] = 0;
 	}
 
-	//monoCipher.getMonoAlphaSubstituteCipher(cipherText, key, numKeys);
+	if(numKeys == 26) {
+		monoCipher.getMonoAlphaSubstituteCipher(cipherText, key, numKeys);
+	}
+
+	//if still plaintext not found
+	polyCipher.getPolyAlphaSubstituteCipher(cipherText, key, numKeys);
+
 
 	return 0;
 }
@@ -90,4 +104,5 @@ int runTest(string cipherText, int shiftKey) {
 		keyFound = shiftKey;
 		cout << "Found the key: " << shiftKey << " for " << testText << " for Length: " << foundLen << endl;
 	}
+	return foundLen;
 }
