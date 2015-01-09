@@ -9,7 +9,7 @@
 #define MC_PROJECT1_CRYPTANALYSIS_H_
 
 #include <iostream>
-#include <unordered_map>
+#include <map>
 #include <string>
 
 #include "Dictionary.h"
@@ -18,6 +18,10 @@
 #include "PolyAlphaSubstituteCipher.h"
 
 using namespace std;
+
+#define KEY_RANGE_START 0
+#define KEY_RANGE_END 25
+
 
 int main();
 int runTest(string cipherText, int shiftKey);

@@ -13,9 +13,7 @@
 #include <string>
 
 #include "Dictionary.h"
-
-#define KEY_RANGE_START 0
-#define KEY_RANGE_END 25
+#include "MC_Project1_Cryptanalysis.h"
 
 using namespace std;
 

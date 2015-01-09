@@ -15,7 +15,6 @@
 
 using namespace std;
 
-
 class PolyAlphaSubstituteCipher {
 		string testText;
 		string cipherTextTest;
