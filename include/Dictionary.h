@@ -11,7 +11,6 @@
 #include <iostream>
 #include <unordered_map>
 #include <string>
-#include <array>
 
 using namespace std;
 
