@@ -12,6 +12,7 @@
 #include <iostream>
 #include <string>
 #include <array>
+#include "Dictionary.h"
 
 using namespace std;
 
