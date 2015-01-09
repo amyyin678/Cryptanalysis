@@ -10,8 +10,8 @@
 
 #define KEY_RANGE_START 0
 #define KEY_RANGE_END 25
-#define numKeys 1
 
+int numKeys=1;
 int key[KEY_RANGE_END+1];
 
 string cipherText; //"btohcbgqnmhb";	//cupid chronic
