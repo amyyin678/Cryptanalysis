@@ -1,5 +1,6 @@
-MC_Project1_Cryptanalysis
+MC_Project1_Cryptanalysis 
 =========================
+[![Build Status](https://travis-ci.org/sanghviharshit/MC_Project1_Cryptanalysis.svg?branch=master)](https://travis-ci.org/sanghviharshit/MC_Project1_Cryptanalysis)
 
 Modern Cryptography Project 1 - Cryptanalysis
 ---------------------------------------------
