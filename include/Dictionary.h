@@ -9,17 +9,17 @@
 #define DICTIONARY_H_
 
 #include <iostream>
-#include <unordered_map>
+#include <map>
 #include <string>
 
 using namespace std;
 
 class Dictionary {
 
-		typedef unordered_map<string, int> hashmap;
+		typedef std::map<string, int> hashmap;
 		hashmap dicWords;
 //		hash< string > hashFunc = dicWords.hash_function();
-		unordered_map<string, int>::const_iterator findWord;
+		std::map<string, int>::const_iterator findWord;
 		int maxLenWords;
 		int minLenWords;
     public:
