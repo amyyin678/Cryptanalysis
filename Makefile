@@ -8,7 +8,7 @@ TARGET := bin/executable
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-CFLAGS := -g # -Wall
+CFLAGS := -g -std=c++0x # -Wall
 LIB := 
 INC := -I include
 
