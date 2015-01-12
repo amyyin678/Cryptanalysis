@@ -8,8 +8,6 @@
 
 #include "MC_Project1_Cryptanalysis.h"
 
-#define KEY_RANGE_START 0
-#define KEY_RANGE_END 25
 
 int numKeys=1;
 int key[KEY_RANGE_END+1];
