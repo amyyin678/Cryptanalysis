@@ -1,9 +1,7 @@
-MC_Project1_Cryptanalysis 
-=========================
-[![Build Status](https://travis-ci.org/sanghviharshit/MC_Project1_Cryptanalysis.svg?branch=master)](https://travis-ci.org/sanghviharshit/MC_Project1_Cryptanalysis)
+Cryptanalysis - An Applied Cryptography Project
+===============================================
+[![Build Status](https://travis-ci.org/sanghviharshit/Cryptanalysis.svg?branch=master)](https://travis-ci.org/sanghviharshit/Cryptanalysis)
 
-Modern Cryptography Project 1 - Cryptanalysis
----------------------------------------------
 
 # Project Description
 This cryptanalysis project consists of a software implementation of an algorithm that tries to decrypt an L-symbol challenge ciphertext using
